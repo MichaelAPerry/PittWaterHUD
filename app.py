@@ -837,11 +837,13 @@ sol_col, moon_col, species_col = st.columns([2, 1, 2], gap="medium")
 
 with sol_col:
     st.markdown('<div class="section-label">SOLUNAR FEEDING PERIODS</div>', unsafe_allow_html=True)
-    if solunar_data:
-        rating = solunar_data.get("dayRating", 0)
-        stars = "★" * int(rating * 5) + "☆" * (5 - int(rating * 5)) if rating else "—"
-        moon_pct = solunar_data.get("moonPhase", 0)
-        st.markdown(f'<div style="font-family:Share Tech Mono;font-size:0.8rem;color:#FFB74D;letter-spacing:3px;margin-bottom:8px;">DAY RATING: {stars} ({rating:.0%} activity)</div>', unsafe_allow_html=True)
+if solunar_data:
+    raw_rating = solunar_data.get("dayRating", 0) or 0
+    rating_out_of_5 = min(raw_rating, 5.0)
+    filled = int(round(rating_out_of_5))
+    stars = "★" * filled + "☆" * (5 - filled)
+    pct = int((rating_out_of_5 / 5.0) * 100)
+    st.markdown(f'<div style="font-family:Share Tech Mono;font-size:0.8rem;color:#FFB74D;letter-spacing:3px;margin-bottom:8px;">DAY RATING: {stars} ({pct}% activity)</div>', unsafe_allow_html=True)
         for key, label, is_major in [
             ("major1","MAJOR 1",True),("major2","MAJOR 2",True),
             ("minor1","MINOR 1",False),("minor2","MINOR 2",False)
