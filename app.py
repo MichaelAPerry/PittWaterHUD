@@ -263,6 +263,13 @@ def cso_risk_from_precip(precip_24h_in, precip_prob_pct):
     return "LOW RISK", "alcosan-ok", "●"
 
 
+def hex_to_rgba(hex_color, alpha=0.06):
+    """Convert #RRGGBB to rgba(r,g,b,a) — Plotly requires this for fillcolor."""
+    h = hex_color.lstrip("#")
+    r, g, b = int(h[0:2], 16), int(h[2:4], 16), int(h[4:6], 16)
+    return f"rgba({r},{g},{b},{alpha})"
+
+
 def sparkbars_html(trend, color):
     if not trend:
         return ""
@@ -762,7 +769,7 @@ for river, cfg in RIVERS.items():
         x=df["time"], y=df["gauge_ft"],
         name=river, mode="lines",
         line=dict(color=cfg["color"], width=2),
-        fill="tozeroy", fillcolor=cfg["color"] + "10",
+        fill="tozeroy", fillcolor=hex_to_rgba(cfg["color"], 0.06),
         hovertemplate=f"<b>{river}</b><br>%{{y:.2f}} ft<br>%{{x|%H:%M ET}}<extra></extra>",
     ))
     # Action stage reference line
