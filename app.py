@@ -844,7 +844,7 @@ if solunar_data:
     stars = "★" * filled + "☆" * (5 - filled)
     pct = int((rating_out_of_5 / 5.0) * 100)
     st.markdown(f'<div style="font-family:Share Tech Mono;font-size:0.8rem;color:#FFB74D;letter-spacing:3px;margin-bottom:8px;">DAY RATING: {stars} ({pct}% activity)</div>', unsafe_allow_html=True)
-        for key, label, is_major in [
+    for key, label, is_major in [
             ("major1","MAJOR 1",True),("major2","MAJOR 2",True),
             ("minor1","MINOR 1",False),("minor2","MINOR 2",False)
         ]:
