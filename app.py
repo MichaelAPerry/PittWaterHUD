@@ -26,13 +26,13 @@ LAT, LON = 40.4406, -79.9959  # Point State Park / Pittsburgh
 
 RIVERS = {
     "Monongahela": {
-        "site_id": "03085000",       # Monongahela at Braddock (better coverage than 03085152)
+        "site_id": "03085000",       # Monongahela at Braddock
         "location": "Braddock",
         "color": "#4FC3F7",
-        "action_stage": 17.0,        # NWS Action Stage (ft)
-        "flood_stage": 25.0,
+        "action_stage": 18.2,        # NWS Action Stage — Braddock (03085000)
+        "flood_stage": 22.0,         # NWS Flood Stage — Braddock (03085000)
         "icon": "🌊",
-        "nwps_id": "BRKP1",          # NWS gauge ID for NWPS forecasts
+        "nwps_id": "BRKP1",
         "upstream_site": "03075070", # Youghiogheny at Connellsville (~6hr lead time)
         "upstream_name": "Youghiogheny at Connellsville",
     },
@@ -40,8 +40,8 @@ RIVERS = {
         "site_id": "03049640",
         "location": "Acmetonia",
         "color": "#81C784",
-        "action_stage": 18.0,
-        "flood_stage": 25.0,
+        "action_stage": 15.0,        # NWS Action Stage — Acmetonia (03049640)
+        "flood_stage": 17.0,         # NWS Flood Stage — Acmetonia (03049640)
         "icon": "🏔️",
         "nwps_id": "PTBP1",
         "upstream_site": "03049500", # Allegheny at Natrona (~2hr lead time)
@@ -51,8 +51,8 @@ RIVERS = {
         "site_id": "03086000",
         "location": "Sewickley",
         "color": "#FFB74D",
-        "action_stage": 16.0,
-        "flood_stage": 24.0,
+        "action_stage": 19.4,        # NWS Action Stage — Sewickley (03086000)
+        "flood_stage": 25.0,         # NWS Flood Stage — Sewickley (03086000)
         "icon": "⚡",
         "nwps_id": "SEWP1",
         "upstream_site": None,       # Ohio is downstream — no upstream site
